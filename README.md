@@ -9,5 +9,20 @@ Filing an issue, creating a pull request (from a fork) and providing feedback ar
 There is <a href="https://github.com/leanprover-community/queueboard/issues?q=is%3Aissue%20state%3Aopen%20label%3Ahas-mentoring-instructions">a list of PRs</a> with mentoring instructions.
 The [architecture overview](ARCHITECTURE.md) contains for an overall impression of the code base, and [the overall documentation](docs.md) contains some particular details.
 
+This repository was extracted from the main `queueboard` repo using the following [`git-filter-repo`](https://github.com/newren/git-filter-repo) command:
+
+```bash
+git-filter-repo --path data processed_data missing_prs.txt stubborn_prs.txt closed_prs_to_backfill.txt redownload.txt --invert-paths
+```
+
+We also used the following commands to delete the `gh-pages` branch:
+
+```bash
+git branch -D gh-pages
+git reflog expire --expire=now --all
+git gc --aggressive --prune=now
+git repack -a -d -l
+```
+
 **Contact.** The initial design, architecture and infrastructure of this dashboard were created by Johan Commelin (@jcommelin). Michael Rothgang (@grunweg) contributed improvements to the design, added more dashboards and added the analysis of the "last status change" and "total time in review" information.
 If you have questions or feedback, feel free to contact us on the [leanprover zulip chat](https://leanprover.zulipchat.com), such as in [the private reviewers stream](https://leanprover.zulipchat.com/#narrow/stream/345428-mathlib-reviewers/topic/proof.20of.20concept.20review.20dashboard) or in the public `#mathlib4` channel.
