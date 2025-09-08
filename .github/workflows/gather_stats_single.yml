@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         # Careful: this script must NOT be run on a stubborn PR, otherwise this logic breaks.
         # (A stubborn PR would have a directory data/NUMBER-basic.)
