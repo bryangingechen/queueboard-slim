@@ -13,10 +13,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: "Checkout queueboard-slim"
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       with:
         ref: master
+        path: queueboard-slim
+
+    - name: "Checkout queueboard"
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        repository: leanprover-community/queueboard
+        ref: master
+
+    - name: "Replace files with those from queueboard-slim"
+      shell: bash -euo pipefail {0}
+      run: |
+        rm -rf scripts
+        mv queueboard-slim/scripts .
+        mv queueboard-slim/*.graphql .
+        mv queueboard-slim/*.html .
+        mv queueboard-slim/*.json .
+        mv queueboard-slim/*.py .
+        rm -rf queueboard-slim
 
     - name: "Run scripts/gather_stats.sh"
       shell: bash -euo pipefail {0}
