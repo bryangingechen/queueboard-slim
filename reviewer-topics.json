@@ -155,8 +155,8 @@
   {
     "github_handle": "Vierkantor",
     "zulip_handle": "@**Anne Baanen**",
-    "top_level": ["t-algebra", "t-number-theory", "t-algorithms", "t-order", "t-lattices", "tech debt"],
-    "free_form": "Typeclasses, hierarchies, optimization and refactoring, metaprogramming"
+    "top_level": ["t-algebra", "t-number-theory", "t-algorithms", "t-order", "tech debt"],
+    "free_form": "Typeclasses, hierarchies, optimization and refactoring, metaprogramming, lattices (order theory)"
   },
   {
     "github_handle": "mariainesdff",
